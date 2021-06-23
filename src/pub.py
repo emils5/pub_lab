@@ -5,6 +5,7 @@ class Pub:
         self.drinks = []
         self.customers = []
         self.drinks_sold = 0
+        self.drunkenness_tolerance = 6
 
     
     def add_drink_to_pub(self, drink):
@@ -26,12 +27,12 @@ class Pub:
         else:
             return False
     
+    
     def drink_transaction(self, customer, drink):
-        if self.check_customer_age(customer):
+        if self.check_customer_age(customer) and customer.drunkenness < self.drunkenness_tolerance:
             self.sell_drink(drink)
             customer.buy_drink(drink)
             customer.drunkenness += drink.alcohol_level
-            
             return True
         else:
             return False

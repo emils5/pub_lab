@@ -3,6 +3,7 @@ import unittest
 from src.pub import *
 from src.customer import *
 from src.drink import *
+from src.food import *
 
 class TestPub(unittest.TestCase):
     
@@ -48,10 +49,16 @@ class TestPub(unittest.TestCase):
         drink = self.beer
         self.assertEqual(True, self.pub.drink_transaction(customer, drink))
     
-    def test_drink_transaction(self):
+    def test_accepted_transaction(self):
         customer = self.customer2
         drink = self.beer
         self.assertEqual(False, self.pub.drink_transaction(customer, drink))
+
+    def test_refused_transaction(self):
+        customer = Customer("David", 15, 31)
+        self.assertEqual(True, self.pub.drink_transaction(customer, self.beer))
+        self.assertEqual(True, self.pub.drink_transaction(customer, self.beer))
+        self.assertEqual(False, self.pub.drink_transaction(customer, self.beer))
         
         
 
