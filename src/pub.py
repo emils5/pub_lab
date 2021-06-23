@@ -25,3 +25,17 @@ class Pub:
             return True
         else:
             return False
+    
+    def drink_transaction(self, customer, drink):
+        if self.check_customer_age(customer):
+            self.sell_drink(drink)
+            customer.buy_drink(drink)
+            customer.drunkenness += drink.alcohol_level
+            
+            return True
+        else:
+            return False
+
+
+
+
