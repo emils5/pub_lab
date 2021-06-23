@@ -3,5 +3,9 @@ class Pub:
         self.name = name
         self.till = till
         self.drinks = []
+    
+    def add_drink_to_pub(self, drink):
+        self.drinks.append(drink)
+
 
 
