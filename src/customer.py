@@ -12,7 +12,7 @@ class Customer:
     def buy_food(self, food):
         self.wallet -= food.price
 
-    def adjust_drunkenness_level(self, drink):
+    def increase_drunkenness_level(self, drink):
         self.drunkenness += drink.alcohol_level
 
 
