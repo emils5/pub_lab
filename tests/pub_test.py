@@ -56,6 +56,10 @@ class TestPub(unittest.TestCase):
         self.assertEqual(True, self.pub.drink_transaction(customer, self.beer))
         self.assertEqual(False, self.pub.drink_transaction(customer, self.beer))
         
+    def test_sell_food(self):
+        self.pub.sell_food(self.burger)
+        self.assertEqual(107, self.pub.till)
+
     def test_rejuvenation(self):
         customer = Customer("David", 15, 31)
         self.assertEqual(True, self.pub.drink_transaction(customer, self.beer))
@@ -63,24 +67,6 @@ class TestPub(unittest.TestCase):
         self.pub.food_transaction(customer, self.burger)     
         self.assertEqual(True, self.pub.drink_transaction(customer, self.beer))
        
-        
-
-
-
-
-# function to sell drink - inside the pub
-    # remove money from customer, give to the pub
-
-
-
-
-# test pub till
-# test pub drinks
-# test customer by name
-# test customer's wallet
-
-# test add money to till
-# test remove money from customer
-
+    
 
     
