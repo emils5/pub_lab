@@ -67,6 +67,7 @@ class TestPub(unittest.TestCase):
         self.pub.food_transaction(customer, self.burger)     
         self.assertEqual(True, self.pub.drink_transaction(customer, self.beer))
        
-    
+    def test_pub_stock(self):
+        
 
     
