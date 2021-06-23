@@ -15,6 +15,15 @@ class Customer:
     def increase_drunkenness_level(self, drink):
         self.drunkenness += drink.alcohol_level
 
+    def decrease_drunkenness_level(self, food):
+        if self.drunkenness == 0:
+            pass
+        elif self.drunkenness < food.rejuvenation:
+            self.drunkenness = 0
+        else:
+            self.drunkenness -= food.rejuvenation
+    
+
 
 
     

@@ -36,20 +36,16 @@ class Pub:
         if self.check_customer_age(customer) and customer.drunkenness < self.drunkenness_tolerance:
             self.sell_drink(drink)
             customer.buy_drink(drink)
-            customer.drunkenness += drink.alcohol_level
+            customer.increase_drunkenness_level(drink)
             return True
         else:
             return False
         
-    def food_transaction(self,customer, meal):
-        if customer.wallet >= meal.price:
-            self.sell_food(meal)
-            customer.buy_food(meal)
-            if customer.drunkenness < meal.rejuvenation:
-                customer.drunkenness = 0
-            else:
-                customer.drunkenness -= meal.rejuvenation
-
+    def food_transaction(self,customer, food):
+        if customer.wallet >= food.price:
+            self.sell_food(food)
+            customer.buy_food(food)
+            customer.decrease_drunkenness_level(food)
 
 
 
