@@ -42,8 +42,6 @@ class TestPub(unittest.TestCase):
         self.assertEqual(True, self.pub.check_customer_age(self.customer1))
         self.assertEqual(False, self.pub.check_customer_age(self.customer2))
 
-    def test_default_drunkenness_level(self):
-        self.assertEqual(0, self.customer1.drunkenness)
     
     def test_drink_transaction(self):
         customer = self.customer1
