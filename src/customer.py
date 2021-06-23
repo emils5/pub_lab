@@ -6,8 +6,14 @@ class Customer:
         self.age = age
         self.drunkenness = 0
 
-    def buy_item(self, item):
-        self.wallet -= item.price
+    def buy_drink(self, drink):
+        self.wallet -= drink.price
+
+    def buy_food(self, food):
+        self.wallet -= food.price
+
+    def adjust_drunkenness_level(self, drink):
+        self.drunkenness += drink.alcohol_level
 
 
 

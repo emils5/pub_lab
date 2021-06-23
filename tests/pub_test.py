@@ -33,22 +33,19 @@ class TestPub(unittest.TestCase):
         self.assertEqual("Frodo", self.pub.find_customer_by_name(self.customer1))
     
     def test_sell_drink(self):
-        self.customer1.buy_item(self.beer)
-        self.pub.sell_item(self.beer)
+        self.pub.sell_drink(self.beer)
         self.assertEqual(103.50, self.pub.till)
-        self.assertEqual(11.50, self.customer1.wallet)
     
     def test_check_customer_age(self):
         self.assertEqual(True, self.pub.check_customer_age(self.customer1))
         self.assertEqual(False, self.pub.check_customer_age(self.customer2))
 
-    
-    def test_drink_transaction(self):
+    def test_drink_transaction_for_age(self):
         customer = self.customer1
         drink = self.beer
         self.assertEqual(True, self.pub.drink_transaction(customer, drink))
     
-    def test_accepted_transaction(self):
+    def test_refused_transaction_for_age(self):
         customer = self.customer2
         drink = self.beer
         self.assertEqual(False, self.pub.drink_transaction(customer, drink))
@@ -59,7 +56,7 @@ class TestPub(unittest.TestCase):
         self.assertEqual(True, self.pub.drink_transaction(customer, self.beer))
         self.assertEqual(False, self.pub.drink_transaction(customer, self.beer))
         
-    def test_refused_transaction(self):
+    def test_rejuvenation(self):
         customer = Customer("David", 15, 31)
         self.assertEqual(True, self.pub.drink_transaction(customer, self.beer))
         self.assertEqual(True, self.pub.drink_transaction(customer, self.beer))

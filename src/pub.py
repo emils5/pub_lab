@@ -19,8 +19,11 @@ class Pub:
         if customer.name:
             return customer.name
     
-    def sell_item(self, item):
-        self.till += item.price
+    def sell_drink(self, drink):
+        self.till += drink.price
+
+    def sell_food(self, food):
+        self.till += food.price
     
     def check_customer_age(self, customer):
         if customer.age >= 18:
@@ -31,8 +34,8 @@ class Pub:
     
     def drink_transaction(self, customer, drink):
         if self.check_customer_age(customer) and customer.drunkenness < self.drunkenness_tolerance:
-            self.sell_item(drink)
-            customer.buy_item(drink)
+            self.sell_drink(drink)
+            customer.buy_drink(drink)
             customer.drunkenness += drink.alcohol_level
             return True
         else:
@@ -40,9 +43,13 @@ class Pub:
         
     def food_transaction(self,customer, meal):
         if customer.wallet >= meal.price:
-            self.sell_item(meal)
-            customer.buy_item(meal)
-            customer.drunkenness -= meal.rejuvenation
+            self.sell_food(meal)
+            customer.buy_food(meal)
+            if customer.drunkenness < meal.rejuvenation:
+                customer.drunkenness = 0
+            else:
+                customer.drunkenness -= meal.rejuvenation
+
 
 
 
