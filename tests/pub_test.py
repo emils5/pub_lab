@@ -25,7 +25,10 @@ class TestPub(unittest.TestCase):
     def test_add_customer_to_pub(self):
         self.pub.add_customer_to_pub(self.customer1)
         self.assertEqual(1, len(self.pub.customers))
-
+    
+    def test_find_customer_by_name(self):
+        self.pub.add_customer_to_pub(self.customer1)
+        self.assertEqual("Frodo", self.pub.find_customer_by_name(self.customer1))
 
 
     # def test_find_customer_by_name(self):
