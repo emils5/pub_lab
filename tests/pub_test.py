@@ -38,6 +38,7 @@ class TestPub(unittest.TestCase):
     
     def test_check_customer_age(self):
         self.assertEqual(True, self.pub.check_customer_age(self.customer1))
+        self.assertEqual(False, self.pub.check_customer_age(self.customer2))
         
 
 
