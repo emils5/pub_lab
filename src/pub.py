@@ -1,10 +1,11 @@
+from src.drink import *
+
 class Pub:
     def __init__(self, name, till):
         self.name = name
         self.till = till
         self.drinks = []
         self.customers = []
-        self.drinks_sold = 0
         self.drunkenness_tolerance = 6
 
     
@@ -44,20 +45,6 @@ class Pub:
             customer.drunkenness -= meal.rejuvenation
 
 
-
-
-
-
-
-
-
-
-# if class(item) == Drink:
-#     if self.check_customer_age and sdflkjsdfl;kasdflkasdf
-
-
-# elif class(item) == Food:
-#     lsdkfjas;ldkfjas;ldkfjasldkfjas
 
 
 
